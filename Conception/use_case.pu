@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+actor "Formateur" as fc
+actor "Student" as st
+
+rectangle "Task Management System" {
+  usecase "Crud Task" as UC1
+  usecase "View Assigned Tasks" as UC2
+  usecase "Update Task Status" as UC3
+  usecase "Track Student Progress" as UC4
+  usecase "Filter Tasks" as UC5
+}
+
+fc -- UC1 
+st -- UC2 
+' st -- UC5 
+fc -- UC4 
+
+UC5 <|-- UC2 : "extends"
+UC2 <|-- UC3 : "extends"
+
+@enduml
